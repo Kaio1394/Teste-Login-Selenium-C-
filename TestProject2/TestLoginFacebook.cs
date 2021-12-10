@@ -8,8 +8,9 @@ using TestProject2.Helpers;
 using Xunit;
 
 namespace TestProject2
-{
-    public class TestLoginFacebook : IClassFixture<TestFixture>
+{   
+    [Collection("Chrome Driver")]
+    public class TestLoginFacebook
     {
         private IWebDriver driver;
 
@@ -24,6 +25,7 @@ namespace TestProject2
             driver.Navigate().GoToUrl("https://www.facebook.com");
 
             // Quando eu preecho os campos de login.
+           
             driver.FindElement(By.Id("email")).SendKeys("xxxxxxxx@hotmail.com");
             driver.FindElement(By.Id("pass")).SendKeys("xxxxxxxxxxxx");
 
