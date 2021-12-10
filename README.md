@@ -14,7 +14,7 @@ Repositório criado com o intuito didático para futuras consultas relacionadas 
 - Microsoft Visual Studio 2019.
 
 ***Instalação:***
-- Acesse a página https://visualstudio.microsoft.com/pt-br/vs/older-downloads/ e faça o download do Microsoft Visual Studio.
+- Acesse a página https://visualstudio.microsoft.com/pt-br/vs/older-downloads/ e faça o download do Microsoft Visual Studio 2019.
 - Acesse a opção "Ferramentas" > "Gerenciador de pacotes NuGe > "Console do gerenciador de pacotes".
 - Após isso escreva no terminal ```Install-Package Microsoft.AspNetCore -Version 2.2.8``` 
 - Agora tudo está pronto.
