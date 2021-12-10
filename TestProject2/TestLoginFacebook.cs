@@ -3,38 +3,37 @@ using OpenQA.Selenium.Chrome;
 using System;
 using System.IO;
 using System.Reflection;
+using TestProject2.Fixtures;
 using TestProject2.Helpers;
 using Xunit;
 
 namespace TestProject2
 {
-    public class TestLoginFacebook
+    public class TestLoginFacebook : IClassFixture<TestFixture>
     {
-        private ChromeDriver driver;
+        private IWebDriver driver;
 
-        public TestLoginFacebook()
+        public TestLoginFacebook(TestFixture fixture)
         {
-            driver = new ChromeDriver(TestHelpers.PastaDoExecutavel());
+            driver = fixture.Driver;
         }
         [Fact]
         public void DadoChromeAbertoDeveAcessarPaginaFacebookERealizarLogin()
         {
-            //Dado que eu acesso a página do facebook
+            // Dado que eu acesso a página do facebook
             driver.Navigate().GoToUrl("https://www.facebook.com");
 
-            //Quando eu preecho os campos de login.
-           
-
+            // Quando eu preecho os campos de login.
             driver.FindElement(By.Id("email")).SendKeys("xxxxxxxx@hotmail.com");
             driver.FindElement(By.Id("pass")).SendKeys("xxxxxxxxxxxx");
 
-            //E clico no botão Entrar e capturo o título da página.
+            // E clico no botão Entrar e capturo o título da página.
             driver.FindElement(By.Name("login")).Click();
             var tituloEsperado = driver.Title;
             var tituloCapturado = "Facebook";
 
-            //Então Capturo o título da página
-            Assert.Contains(tituloCapturado, driver.Title);
+            // Então Capturo o título da página
+            Assert.Contains(tituloCapturado, tituloEsperado);
         }
     }
 }
